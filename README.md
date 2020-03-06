@@ -9,6 +9,13 @@ One Paragraph of project description goes here
 
 The following java program will read data from an csv files and do a HTTP request to insert the data into the database. 
 
+### Prerequisites
+
+1. Csv file name must be [DB_TableName]_[Time in Epoch]
+2. Csv file first row of data must be the able to map as database column name
+
+```
+
 ### Settings  
 
 In order to use the program, you will have to set configuration in config..properties file. 
