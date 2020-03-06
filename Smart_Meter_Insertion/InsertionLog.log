@@ -1,50 +1,10 @@
-Mar 06, 2020 10:47:21 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 10:47:21 SGT 2020
-from file jtcSmPlugDeviceInfo_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
+Mar 06, 2020 11:50:55 AM smart_meterInsert.WriteData run
+WARNING: Fri Mar 06 11:50:55 SGT 2020
+from file JtcSmPlugData_1580566260.csv rows 1
+URL : http://192.168.0.10:8080/simplecreate?table=JtcSmPlugData&plugId=Plug_1_1&deviceId&plugStatus=1&energyConsumption=1.9&powerLoad=1.8&loggedTime=2020-02-24T15:50:20.000Z&responseTime=2020-02-24T15:50:20.000Z
 Http Response Code : 500
-Mar 06, 2020 10:47:21 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 10:47:21 SGT 2020
-from file jtcSmPlugDeviceInfo_1580566200.txt rows 3
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 10:52:22 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 10:52:22 SGT 2020
-from file JtcSmPlugInfo_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:00:23 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:00:23 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 1
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:00:23 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:00:23 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:01:36 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:01:36 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:04:05 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:04:05 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 1
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:04:05 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:04:05 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:05:33 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:05:33 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 1
-URL : http://192.168.0.10:8080/simplecreate?null
-Http Response Code : 500
-Mar 06, 2020 11:05:33 AM smart_meterInsert.WriteData run
-WARNING: Fri Mar 06 11:05:33 SGT 2020
-from file JtcSmPlugState_1580566200.txt rows 2
-URL : http://192.168.0.10:8080/simplecreate?null
+Mar 06, 2020 11:50:56 AM smart_meterInsert.WriteData run
+WARNING: Fri Mar 06 11:50:56 SGT 2020
+from file JtcSmPlugData_1580566260.csv rows 2
+URL : http://192.168.0.10:8080/simplecreate?table=JtcSmPlugData&plugId=Plug_1_1&deviceId&plugStatus=1&energyConsumption=1.9&powerLoad=1.8&loggedTime=2020-02-24T15:50:20.000Z&responseTime=2020-02-24T15:50:20.000Z
 Http Response Code : 500

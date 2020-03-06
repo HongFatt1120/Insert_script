@@ -39,6 +39,7 @@ public class WriteData extends TimerTask {
 					// loop through request
 					for (int i = 1; i < data.size(); i++) {
 						dbc.prepareParams(tablename, data.get(0), data.get(i));
+						String query = dbc.getQuery();
 						int responseCode = dbc.httpPost();
 						if(responseCode != 200) {
 							fh = new FileHandler("InsertionLog.log", true);
@@ -48,7 +49,7 @@ public class WriteData extends TimerTask {
 							// the following statement is used to log any messages
 							String msg = new Date() + "\nfrom file " + file
 									+ " rows " + i
-									+ "\nURL : " + Prop.p.getProperty("API") + dbc.getQuery()
+									+ "\nURL : " + Prop.p.getProperty("API") + query
 									+ "\nHttp Response Code : " + responseCode;
 							logger.warning(msg);
 							fh.close();
