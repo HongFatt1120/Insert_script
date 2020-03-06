@@ -1,0 +1,4 @@
+deviceId,deviceMax,deviceName,tlocation,vendor,deviceCategory
+test_data1,99,computer,r601,ancale,test_data1
+test_data2,99,computer,r610,ancale,test_data1
+test_data3,99,computer,r611,ancale,test_data1

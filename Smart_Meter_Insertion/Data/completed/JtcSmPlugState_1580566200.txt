@@ -1,0 +1,2 @@
+loggedTime,deviceId,dstate,plugId
+2019-11-07T00:00:00.000Z,test_data1,0,PlugTessx_x1

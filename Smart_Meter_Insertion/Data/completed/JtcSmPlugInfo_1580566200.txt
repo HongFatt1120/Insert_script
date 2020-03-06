@@ -1,0 +1,3 @@
+plugId,unid,tlocation,vendor,meterId,shortMac,plugName
+PlugTessx_x2,54:9A:11:C1:00:B3,r601,tesseract,trmeter1,11C100,Plugx
+PlugTessx_x1,54:9A:11:C1:00:B3,r610,tesseract,trmeter1,11C100,Plugx
