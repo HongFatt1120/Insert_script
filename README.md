@@ -21,10 +21,14 @@ The following java program will read data from an csv files and do a HTTP reques
 In order to use the program, you will have to set configuration in config..properties file. 
 
 ```
-dir=[Directory to read the csv file],[2nd Directory is there is]
+dir=[Directory to read the csv file],[2nd Directory if there is]
+<br/>
 #1 Hour
+<br/>
 Interval=[hours in days] e.g. 0.041667 -> 1 hour
+<br/>
 Day=86400
+<br/>
 API=[API_Endpoint]
-```
+
 
