@@ -15,9 +15,12 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import org.apache.logging.log4j.LogManager;
+
 public class DatabaseHelper {
 	private LinkedHashMap<String, String> postParams = new LinkedHashMap<String, String>();
 	private static DatabaseHelper single_instance = null;
+
 
 	public static DatabaseHelper getInstance() {
 		if (single_instance == null)

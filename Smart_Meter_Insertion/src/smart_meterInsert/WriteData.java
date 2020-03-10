@@ -1,12 +1,13 @@
 package smart_meterInsert;
 
-import java.text.ParseException;
+import java.text.ParseException; 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.TimerTask;
-import java.util.logging.FileHandler;
-import java.util.logging.Logger;
-import java.util.logging.SimpleFormatter;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+
 
 public class WriteData extends TimerTask {
 
@@ -14,8 +15,8 @@ public class WriteData extends TimerTask {
 	private DatabaseHelper dbc = DatabaseHelper.getInstance();
 	private FileUtils fileUtils = new FileUtils();
 	private String dir;
-	Logger logger = Logger.getLogger("MyLog");
-	FileHandler fh;
+	final Logger logger = (Logger) LogManager.getLogger("smart_insert");
+
 
 	public WriteData(String dir) {
 		this.dir = dir;
@@ -42,17 +43,14 @@ public class WriteData extends TimerTask {
 						String query = dbc.getQuery();
 						int responseCode = dbc.httpPost();
 						if(responseCode != 200) {
-							fh = new FileHandler("InsertionLog.log", true);
-							logger.addHandler(fh);
-							SimpleFormatter formatter = new SimpleFormatter();
-							fh.setFormatter(formatter);
+							
 							// the following statement is used to log any messages
-							String msg = new Date() + "\nfrom file " + file
+							String msg = "from file " + file
 									+ " rows " + i
 									+ "\nURL : " + Prop.p.getProperty("API") + query
 									+ "\nHttp Response Code : " + responseCode;
-							logger.warning(msg);
-							fh.close();
+							logger.warn(msg);
+//							
 						}
 					}
 					fileUtils.moveFile(dir, file);
