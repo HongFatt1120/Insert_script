@@ -7,7 +7,7 @@ import java.util.Calendar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import smart_meterInsert.IntervalUtil;
+import smart_meterInsert.IntervalUtils;
 
 class IntervalUtil_test {
 
@@ -19,7 +19,7 @@ class IntervalUtil_test {
 	@Test
 	void getNextInterval_getNearestHour_returnNearestHour()
 	{
-		IntervalUtil iu = new IntervalUtil(1);
+		IntervalUtils iu = new IntervalUtils(1);
 		Calendar now = Calendar.getInstance();
 		now.add(Calendar.HOUR, 1);
 		now.set(Calendar.MINUTE, 0);

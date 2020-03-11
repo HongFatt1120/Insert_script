@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import smart_meterInsert.DatabaseHelper;
-import smart_meterInsert.Prop;
+import smart_meterInsert.PropertiesReader;
 
 class DatabaseHelper_test {
 
@@ -17,7 +17,7 @@ class DatabaseHelper_test {
 	@BeforeEach
 	void setUp() throws Exception {
 		dbh = DatabaseHelper.getInstance();
-		Prop.init();
+		PropertiesReader.init();
 	}
 
 	@Test

@@ -31,21 +31,21 @@ class FileUtils_test {
 	@Test
 	void listFilesForFolder_ValidDir_ReturnData() {
 		ArrayList<String> fileData = file.listFilesForFolder("Data\\");
-		assertEquals(fileData.size(),2);
+		assertEquals(fileData.size(),1);
 	}
 	
 	@Test
 	void moveFile_invalidDir_FileDirNoChange() {
 		file.moveFile("Dat1a\\", "JtcSmPlugData_158056620.csv");
 		ArrayList<String> fileData = file.listFilesForFolder("Data\\");
-		assertEquals(fileData.size(),2);
+		assertEquals(fileData.size(),1);
 	}
 	
 	@Test
 	void moveFile_invalidFile_FileDirNoChange() {
 		file.moveFile("Data\\", "abc.csv");
 		ArrayList<String> fileData = file.listFilesForFolder("Data\\");
-		assertEquals(fileData.size(),2);
+		assertEquals(fileData.size(),1);
 	}
 
 //	@Test
