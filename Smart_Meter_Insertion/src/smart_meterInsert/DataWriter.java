@@ -1,5 +1,5 @@
 /*
- * DataWriter will be trigger in intervals 
+ * DataWriter will be trigger when intervals 
  * and insert the data into database by doing an API call
  * 
  * @version 1.0 10 March 2020  
@@ -21,7 +21,8 @@ public class DataWriter extends TimerTask {
 	private CsvUtils csv;
 
 	/* databasHelper is getting an singleton instance */
-	private DatabaseHelper databaseHelper = DatabaseHelper.getInstance();
+	private DatabaseHelper databaseHelper = DatabaseHelper
+	        .getInstance();
 
 	/* Initialize a fileUtils object to do is getting an singleton instance */
 	private FileUtils fileUtils = new FileUtils();
@@ -30,7 +31,8 @@ public class DataWriter extends TimerTask {
 	private String dir;
 
 	/* Initialize Log4j2 object to log errors if any. */
-	final Logger logger = (Logger) LogManager.getLogger("smart_insert");
+	final Logger logger = (Logger) LogManager
+	        .getLogger("smart_insert");
 
 	/**
 	 * Constructor
@@ -55,7 +57,8 @@ public class DataWriter extends TimerTask {
 
 		csv = new CsvUtils();
 		try {
-			ArrayList<String> files = fileUtils.listFilesForFolder(dir);
+			ArrayList<String> files = fileUtils
+			        .listFilesForFolder(dir);
 			String latestFile = fileUtils.getLatestFile(files);
 
 			if (files.size() < 1)
@@ -63,22 +66,25 @@ public class DataWriter extends TimerTask {
 			for (String file : files) {
 				if (!file.equals(latestFile)) {
 					// Inserting latest data collected from the csv
-					ArrayList<String[]> data = csv.getCsv(this.dir + file);
+					ArrayList<String[]> data = csv
+					        .getCsv(this.dir + file);
 					String tablename = file.split("_")[0];
 
 					// loop through request
 					for (int i = 1; i < data.size(); i++) {
-						databaseHelper.prepareParams(tablename, data.get(0), data.get(i));
+						databaseHelper.prepareParams(tablename,
+						        data.get(0), data.get(i));
 						String query = databaseHelper.getQuery();
 						int responseCode = databaseHelper.httpPost();
 						if (responseCode != 200) {
 
 							// the following statement is used to log any messages
-							String msg = "from file " + file 
-									+ " rows " + i 
-									+ "\nURL : " + PropertiesReader.prop.getProperty("API") 
-									+ query + "\nHttp Response Code : "
-									+ responseCode;
+							String msg = "from file " + file + " rows "
+							        + i + "\nURL : "
+							        + PropertiesReader.prop
+							                .getProperty("API")
+							        + query + "\nHttp Response Code : "
+							        + responseCode;
 							logger.warn(msg);
 //							
 						}
@@ -87,7 +93,6 @@ public class DataWriter extends TimerTask {
 				}
 			}
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Throwable e) {
 			e.printStackTrace();

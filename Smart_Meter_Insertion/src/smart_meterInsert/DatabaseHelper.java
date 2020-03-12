@@ -1,5 +1,5 @@
 /*
- * DatabaseHelper class is used to handle inserting data  
+ * DatabaseHelper class is used to handle inserting data   
  * By doing a REST API call to server.  
  * 
  * @version 1.0 10 March 2020  
@@ -31,8 +31,8 @@ public class DatabaseHelper {
 	private LinkedHashMap<String, String> postParams = new LinkedHashMap<String, String>();
 
 	/**
-	 * Retrieve the current databaseHelper instance, if not created. Create and
-	 * return instance
+	 * Retrieve the current databaseHelper instance, 
+	 * if not created. Create and return instance
 	 * 
 	 * @param null
 	 * @return DatabaseHelper instance
@@ -55,9 +55,11 @@ public class DatabaseHelper {
 	public int httpPost() {
 		int responseCode = 0;
 		try {
-			URL url = new URL(PropertiesReader.prop.getProperty("API") + getQuery());
+			URL url = new URL(PropertiesReader.prop.getProperty("API")
+			        + getQuery());
 //			System.out.println(url.toString());
-			HttpURLConnection con = (HttpURLConnection) url.openConnection();
+			HttpURLConnection con = (HttpURLConnection) url
+			        .openConnection();
 			con.setRequestMethod("POST");
 			con.setDoOutput(true);
 
@@ -78,13 +80,15 @@ public class DatabaseHelper {
 	 * Store the values into paramsName
 	 * 
 	 * @param table      database table name
-	 * @param paramsName database columns
-	 * @param value      value to be inserted
+	 * @param paramsName database columns name
+	 * @param value      data to be inserted
 	 * @return boolean return true when the parameter is set correctly.
 	 */
-	public boolean prepareParams(String table, String[] paramsName, String[] value) {
+	public boolean prepareParams(String table, String[] paramsName,
+	        String[] value) {
 
-		if (paramsName.length != value.length || (table.length() < 1))
+		if ((paramsName.length != value.length)
+		        || (table.length() < 1))
 			return false;
 		postParams.put("table", table);
 		for (int i = 0; i < paramsName.length; i++) {
@@ -103,11 +107,11 @@ public class DatabaseHelper {
 	public String getQuery() throws UnsupportedEncodingException {
 		StringBuilder result = new StringBuilder();
 		boolean first = true;
-		Set set = postParams.entrySet();
+		Set<?> set = postParams.entrySet();
 		if (set.isEmpty() || set.size() < 1)
 			return null;
 		// Get an iterator
-		Iterator i = set.iterator();
+		Iterator<?> i = set.iterator();
 
 		// Display elements
 		while (i.hasNext()) {
@@ -117,12 +121,15 @@ public class DatabaseHelper {
 			} else {
 				result.append("&");
 			}
-			result.append(URLEncoder.encode(pair.getKey().toString(), "utf-8"));
+			result.append(URLEncoder.encode(pair.getKey().toString(),
+			        "utf-8"));
 
 			if (pair.getValue().toString().length() >= 1) {
 				result.append("=");
 			}
-			String encodedval = URLEncoder.encode(pair.getValue().toString(), "utf-8").replace("+", "%20");
+			String encodedval = URLEncoder
+			        .encode(pair.getValue().toString(), "utf-8")
+			        .replace("+", "%20");
 			encodedval = encodedval.replace("%3A", ":");
 			result.append(encodedval);
 		}

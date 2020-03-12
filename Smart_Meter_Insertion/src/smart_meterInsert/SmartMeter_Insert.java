@@ -1,5 +1,5 @@
 /*
- * The program will read through the configuration 
+ * The program will read the configuration 
  * from the config.propeties file and create the number of 
  * threads to insert data. 
  *  
@@ -22,14 +22,17 @@ public class SmartMeter_Insert {
 	private static String[] period;
 	static {
 		File log4j2File = new File("log4j2.xml");
-		System.setProperty("log4j2.configurationFile", log4j2File.toURI().toString());
+		System.setProperty("log4j2.configurationFile",
+		        log4j2File.toURI().toString());
 	}
 
-	public static void main(String[] arg) throws IOException, ParseException, InterruptedException {
+	public static void main(String[] arg)
+	        throws IOException, ParseException, InterruptedException {
 
 		PropertiesReader.init();
 
-		period = PropertiesReader.prop.getProperty("Interval").split(",");
+		period = PropertiesReader.prop.getProperty("Interval")
+		        .split(",");
 		dir = PropertiesReader.prop.getProperty("dir").split(",");
 		Integer.parseInt(PropertiesReader.prop.getProperty("Day"));
 
@@ -39,16 +42,15 @@ public class SmartMeter_Insert {
 
 	// Creating threads depend on properties file
 	public static void runTasks() {
-//		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(dir.length);
 		for (int i = 0; i < period.length; i++) {
 			DataWriter write = new DataWriter(dir[i]);
 			double hr = Double.parseDouble(period[i]) * 24;
 
 			Timer timer = new Timer();
-			new IntervalUtils(hr);
-//			timer.scheduleAtFixedRate(write, iu.getNextInterval(), TimeUnit.MINUTES.toMillis((int) hr * 60));
-			timer.scheduleAtFixedRate(write, 0, TimeUnit.MINUTES.toMillis((int) hr * 60));
+			IntervalUtils iu = new IntervalUtils(hr);
+			timer.scheduleAtFixedRate(write, iu.getNextInterval(),
+			        TimeUnit.MINUTES.toMillis((int) hr * 60));
+//			timer.scheduleAtFixedRate(write, 0, TimeUnit.MINUTES.toMillis((int) hr * 60));
 		}
 	}
-
 }

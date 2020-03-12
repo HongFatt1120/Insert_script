@@ -52,7 +52,7 @@ public class FileUtils {
 
 			Files.move(src.toPath(), folder.toPath().resolve(src.getName()), StandardCopyOption.ATOMIC_MOVE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}

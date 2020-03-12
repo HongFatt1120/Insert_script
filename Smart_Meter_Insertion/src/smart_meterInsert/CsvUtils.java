@@ -1,5 +1,5 @@
 /*
- * CsvUtils class is used to handle actions  
+ * CsvUtils class is used to handle actions   
  * that related to csv file 
  * 
  * @version 1.0 10 March 2020  
@@ -19,25 +19,18 @@ public class CsvUtils {
 	 * Function are developed to read and retrieve data from a Csv file.
 	 */
 
-	/*
-	 * br is a BufferedReader object to read data from file.
-	 */
+	/* br is a BufferedReader object to read data from file. */
 	private BufferedReader br = null;
-
 	/*
 	 * String line is used to take in each line of records from the BufferReader
 	 * object.
 	 */
 	private String line = "";
 
-	/*
-	 * Delimiter indicate that how the records is being split. 
-	 * */
+	/* Delimiter indicate that how the records is being split. */
 	private String delimiter = ",";
 
-	/*
-	 * Initialize an arraylist of string array to store data from csv file
-	 */
+	/* Initialize an arraylist of string array to store data from csv file */
 	private ArrayList<String[]> data = new ArrayList<String[]>();
 
 	/**
