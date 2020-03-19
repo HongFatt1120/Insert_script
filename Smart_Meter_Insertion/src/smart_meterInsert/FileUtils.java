@@ -67,13 +67,16 @@ public class FileUtils {
 		if (filelist == null || filelist.size() < 1 ) {
 			return null;
 		}
-		String FileTimestamp = filelist.get(0).split("_")[1];
+		String[] fileNameArr = filelist.get(0).split("_");
+		String FileTimestamp = fileNameArr[fileNameArr.length-1];
+		
+		
 		int timeInEpoch = Integer.parseInt(FileTimestamp.substring(0, FileTimestamp.lastIndexOf('.')));
 		String latestFile = filelist.get(0);
-		
+//		
 		for (int i = 0; i < filelist.size(); i++) {
 			String[] firstdate = filelist.get(i).split("_");
-			String formattedStr = firstdate[1].substring(0, firstdate[1].lastIndexOf('.'));
+			String formattedStr = firstdate[firstdate.length-1].substring(0, firstdate[firstdate.length-1].lastIndexOf('.'));
 			int latestDate =Integer.parseInt(formattedStr);
 			if (latestDate  > timeInEpoch) {
 				latestFile = filelist.get(i);

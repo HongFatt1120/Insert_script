@@ -68,25 +68,26 @@ public class DataWriter extends TimerTask {
 					// Inserting latest data collected from the csv
 					ArrayList<String[]> data = csv
 					        .getCsv(this.dir + file);
-					String tablename = file.split("_")[0];
-
+					
+					int nameIndex = file.lastIndexOf("_");
+					String tablename = file.substring(0, nameIndex).replace("_", "-");
 					// loop through request
 					for (int i = 1; i < data.size(); i++) {
-						databaseHelper.prepareParams(tablename,
+						databaseHelper.prepareParams(
 						        data.get(0), data.get(i));
-						String query = databaseHelper.getQuery();
-						int responseCode = databaseHelper.httpPost();
-						if (responseCode != 200) {
-
+//						String query = databaseHelper.getQuery();
+						int responseCode = databaseHelper.httpPost(tablename);
+						if (responseCode != 201) {
+//
 							// the following statement is used to log any messages
 							String msg = "from file " + file + " rows "
 							        + i + "\nURL : "
 							        + PropertiesReader.prop
 							                .getProperty("API")
-							        + query + "\nHttp Response Code : "
+							        + "\nHttp Response Code : "
 							        + responseCode;
 							logger.warn(msg);
-//							
+////							
 						}
 					}
 					fileUtils.moveFile(dir, file);

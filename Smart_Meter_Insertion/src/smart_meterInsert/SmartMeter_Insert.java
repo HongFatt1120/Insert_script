@@ -13,8 +13,10 @@ package smart_meterInsert;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
+import org.json.simple.*;
 
 public class SmartMeter_Insert {
 
@@ -36,8 +38,18 @@ public class SmartMeter_Insert {
 		dir = PropertiesReader.prop.getProperty("dir").split(",");
 		Integer.parseInt(PropertiesReader.prop.getProperty("Day"));
 
+		
 		runTasks();
 
+		
+		
+		//TESTING 
+//		DatabaseHelper dbh  = DatabaseHelper.getInstance();
+//		String[] paramsName = {"controller_device_id","device_reading_name","device_reading","creation_date","2","modification_date","modification_by"};
+//		String[] value = {"12","power","141.73","2020-03-17T09:46:24.018","DataStoreAgent","2020-03-17T09:46:24.023","DataStoreAgent"};
+//		
+//		dbh.prepareParams(paramsName, value);
+//		dbh.httpPost("controller-device-reading-test");
 	}
 
 	// Creating threads depend on properties file
