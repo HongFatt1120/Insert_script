@@ -29,7 +29,7 @@ public class SmartMeter_Insert {
 	}
 
 	public static void main(String[] arg)
-	        throws IOException, ParseException, InterruptedException {
+	        throws IOException, 	 ParseException, InterruptedException {
 
 		PropertiesReader.init();
 
@@ -60,9 +60,9 @@ public class SmartMeter_Insert {
 
 			Timer timer = new Timer();
 			IntervalUtils iu = new IntervalUtils(hr);
-			timer.scheduleAtFixedRate(write, iu.getNextInterval(),
-			        TimeUnit.MINUTES.toMillis((int) hr * 60));
-//			timer.scheduleAtFixedRate(write, 0, TimeUnit.MINUTES.toMillis((int) hr * 60));
+//			timer.scheduleAtFixedRate(write, iu.getNextInterval(),
+//			        TimeUnit.MINUTES.toMillis((int) hr * 60));
+			timer.scheduleAtFixedRate(write, 0, TimeUnit.MINUTES.toMillis((int) hr * 60));
 		}
 	}
 }
