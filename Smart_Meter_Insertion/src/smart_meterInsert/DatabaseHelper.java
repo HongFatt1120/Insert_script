@@ -88,7 +88,7 @@ public class DatabaseHelper {
 	public boolean prepareParams( String[] paramsName,
 	        String[] value) {
 
-		if ((paramsName.length != value.length))
+		if (paramsName  == null || value == null || (paramsName.length != value.length))
 		{
 			return false;
 		}

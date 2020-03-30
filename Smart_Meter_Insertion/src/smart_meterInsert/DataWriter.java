@@ -61,7 +61,7 @@ public class DataWriter extends TimerTask {
 			        .listFilesForFolder(dir);
 			String latestFile = fileUtils.getLatestFile(files);
 
-			if (files.size() < 1)
+			if (files == null || files.size() < 1)
 				return;
 			for (String file : files) {
 				if (!file.equals(latestFile)) {
@@ -77,8 +77,7 @@ public class DataWriter extends TimerTask {
 						        data.get(0), data.get(i));
 //						String query = databaseHelper.getQuery();
 						int responseCode = databaseHelper.httpPost(tablename);
-						if (responseCode != 201) {
-//
+						if (responseCode != 201 || responseCode == 0) {
 							// the following statement is used to log any messages
 							String msg = "from file " + file + " rows "
 							        + i + "\nURL : "
